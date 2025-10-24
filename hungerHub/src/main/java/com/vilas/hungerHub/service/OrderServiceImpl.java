@@ -11,6 +11,7 @@ import com.vilas.hungerHub.serviceInterface.IdSequenceService;
 import com.vilas.hungerHub.serviceInterface.MenuService;
 import com.vilas.hungerHub.serviceInterface.OrderItemService;
 import com.vilas.hungerHub.serviceInterface.OrderService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -86,6 +87,5 @@ public class OrderServiceImpl implements OrderService {
 
         order.setTotalAmount(totalAmount);
     }
-
 
 }

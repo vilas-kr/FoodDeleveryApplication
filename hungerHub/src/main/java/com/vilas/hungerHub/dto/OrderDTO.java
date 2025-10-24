@@ -2,8 +2,8 @@ package com.vilas.hungerHub.dto;
 
 import com.vilas.hungerHub.entity.Payment;
 import com.vilas.hungerHub.entity.Status;
-import lombok.*;
 
+import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;

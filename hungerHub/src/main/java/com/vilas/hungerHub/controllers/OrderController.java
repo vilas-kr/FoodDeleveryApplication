@@ -2,9 +2,9 @@ package com.vilas.hungerHub.controllers;
 
 import com.vilas.hungerHub.dto.OrderDTO;
 import com.vilas.hungerHub.serviceInterface.OrderService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,6 +1,5 @@
 package com.vilas.hungerHub.entity;
 
-import com.vilas.hungerHub.entity.Restaurant;
 import jakarta.persistence.*;
 import lombok.*;
 

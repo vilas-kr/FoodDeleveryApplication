@@ -1,9 +1,8 @@
 package com.vilas.hungerHub.controllers;
 
 import com.vilas.hungerHub.dto.RestaurantDTO;
-import com.vilas.hungerHub.service.RestaurantServiceImpl;
-
 import com.vilas.hungerHub.serviceInterface.RestaurantService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

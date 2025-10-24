@@ -1,9 +1,8 @@
 package com.vilas.hungerHub.controllers;
 
 import com.vilas.hungerHub.entity.User;
-import com.vilas.hungerHub.service.UserServiceImpl;
-
 import com.vilas.hungerHub.serviceInterface.UserService;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
