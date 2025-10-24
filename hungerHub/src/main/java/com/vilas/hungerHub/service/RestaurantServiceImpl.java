@@ -145,6 +145,9 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     }
 
-
+    @Override
+    public Restaurant getRestaurant(String restaurantId){
+        return restRepo.findById(restaurantId).orElseThrow(() -> new RestaurantNotFoundException("Invalid Restaurant Id"));
+    }
 
 }

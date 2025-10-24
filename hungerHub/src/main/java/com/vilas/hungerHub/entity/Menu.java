@@ -4,6 +4,8 @@ import com.vilas.hungerHub.entity.Restaurant;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity
 @Table(name = "menu")
 @AllArgsConstructor
@@ -26,8 +28,8 @@ public class Menu {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "price", nullable = false)
-    private float price;
+    @Column(name = "price", nullable = false, scale = 2)
+    private BigDecimal price;
 
     @Column(name = "available")
     private boolean isAvailable;

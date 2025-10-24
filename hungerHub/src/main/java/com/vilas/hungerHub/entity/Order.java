@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "order")
+@Table(name = "food_order")//order is a keyword in mysql
 @Getter
 @Setter
 @NoArgsConstructor
@@ -20,7 +20,7 @@ import java.util.List;
 public class Order {
 
     @Id
-    @Column(name = "order_id")
+    @Column(name = "order_id", columnDefinition = "CHAR(9)")
     private String orderId;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -47,6 +47,17 @@ public class Order {
     private Payment paymentType;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> itemList;
+    private List<OrderItem> orderItems;
 
+    //To make copy of the object
+    public Order(Order order) {
+        this.orderId = order.getOrderId();
+        this.restaurant = order.getRestaurant();
+        this.user = order.getUser();
+        this.orderDate = order.getOrderDate();
+        this.totalAmount = order.getTotalAmount();
+        this.status = order.getStatus();
+        this.paymentType = order.getPaymentType();
+        this.orderItems = order.getOrderItems();
+    }
 }

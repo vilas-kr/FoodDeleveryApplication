@@ -24,4 +24,6 @@ public interface UserService {
     User updateDetails(User existUser, User updateUser);
 
     User deleteUser(User user);
+
+    User getUser(String userId);
 }

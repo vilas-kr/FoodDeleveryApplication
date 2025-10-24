@@ -15,7 +15,7 @@ import lombok.Setter;
 public class OrderItem {
 
     @Id
-    @Column(name = "order_item_id")
+    @Column(name = "order_item_id", columnDefinition = "CHAR(10)")
     private String orderItemId;
 
     @ManyToOne(cascade = CascadeType.ALL)

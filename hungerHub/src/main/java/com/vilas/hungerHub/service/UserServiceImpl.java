@@ -2,6 +2,7 @@ package com.vilas.hungerHub.service;
 
 import com.vilas.hungerHub.entity.IdSequence;
 import com.vilas.hungerHub.entity.User;
+import com.vilas.hungerHub.exception.UserNotFoundException;
 import com.vilas.hungerHub.repository.IdSequenceRepository;
 import com.vilas.hungerHub.repository.UserRepository;
 import com.vilas.hungerHub.serviceInterface.UserService;
@@ -196,6 +197,11 @@ public class UserServiceImpl implements UserService {
     public User deleteUser(User user){
         userRepo.delete(user);
         return user;
+    }
+
+    @Override
+    public User getUser(String userId){
+        return userRepo.findById(userId).orElseThrow(() -> new UserNotFoundException("Invalid User Id"));
     }
 
 }

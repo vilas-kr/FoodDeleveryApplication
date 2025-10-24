@@ -57,6 +57,7 @@ public class MenuServiceImpl implements MenuService {
         return menuMapper.toDto(menu);
     }
 
+    @Override
     public Menu findMenu(String menuId){
         return menuRepository.findById(menuId).orElseThrow(() -> new MenuNotFoundException("Provide Valid Menu ID"));
     }
@@ -78,7 +79,7 @@ public class MenuServiceImpl implements MenuService {
             menu.setName(menuDTO.getName());
         if(menuDTO.getDescription() != null)
             menu.setDescription(menuDTO.getDescription());
-        if(menuDTO.getPrice() != 0.0f)
+        if(menuDTO.getPrice() != null)
             menu.setPrice(menuDTO.getPrice());
         if(menuDTO.getAvailable() != null)
             menu.setAvailable(menuDTO.getAvailable());

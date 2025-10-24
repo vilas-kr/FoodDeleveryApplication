@@ -1,6 +1,7 @@
 package com.vilas.hungerHub.serviceInterface;
 
 import com.vilas.hungerHub.dto.RestaurantDTO;
+import com.vilas.hungerHub.entity.Restaurant;
 
 public interface RestaurantService {
 
@@ -16,4 +17,5 @@ public interface RestaurantService {
 
     RestaurantDTO deleteRestaurant(RestaurantDTO dto);
 
+    Restaurant getRestaurant(String restaurantId);
 }
