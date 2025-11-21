@@ -52,7 +52,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.OK).body(allUsers);
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<?> verifyUser(@RequestBody Map<String, String> map){
 
         Object user = userService.login(map.get("userName"), map.get("password"));

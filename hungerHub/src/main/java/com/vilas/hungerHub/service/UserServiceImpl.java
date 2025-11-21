@@ -88,7 +88,6 @@ public class UserServiceImpl implements UserService {
 
             if (!user.getPassword().equals(password))
                 throw new RuntimeException("Invalid credentials");
-
         }
         catch (RuntimeException e){
             return e.getMessage();
