@@ -4,55 +4,51 @@
 .DS_Store
 Thumbs.db
 *.log
-logs/
 *.tmp
 *.cache
 
 ###############################
 # NODE / REACT (HungerHubFrontEnd)
 ###############################
-# Ignore node_modules anywhere in repo
-**/node_modules/
+# Node modules (ignore everywhere)
 node_modules/
+**/node_modules/
 
-
-# Vite / React build output
+# Vite / React dist build
+dist/
 **/dist/
 **/dist-ssr/
 **/.vite/
 
-# Local environment files
-*.local
+# Env files
 *.env
 *.env.*
-
 
 ###############################
 # JAVA / SPRING BOOT (hungerHub)
 ###############################
 # Maven
+target/
 **/target/
+
+# Gradle (if used)
+build/
+**/build/
+
+# Ignore wrapper files except JAR
+.mvn/
 !.mvn/wrapper/maven-wrapper.jar
 
-# Gradle (if ever used)
-**/build/
-!**/src/main/**/build/
-!**/src/test/**/build/
-
-# Logs
-*.log
-
-# IDE Stuff
 ###############################
-# IntelliJ / IDEA
-*.iml
-*.iws
-*.ipr
+# IDE FILES (Global)
+###############################
+# IntelliJ IDEA
 .idea/
+*.iml
 
 # VSCode
+.vscode/
 .vscode/*
-!.vscode/extensions.json
 
 # Eclipse / STS
 .classpath
@@ -64,9 +60,8 @@ node_modules/
 .factorypath
 
 ###############################
-# OS / Misc
+# OTHER
 ###############################
 *.swp
 *.swo
-*.sln
-*.suo
+out/
