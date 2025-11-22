@@ -13,6 +13,8 @@ logs/
 ###############################
 # Ignore node_modules anywhere in repo
 **/node_modules/
+node_modules/
+
 
 # Vite / React build output
 **/dist/
