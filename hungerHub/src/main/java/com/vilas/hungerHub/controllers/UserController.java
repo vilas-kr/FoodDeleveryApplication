@@ -1,6 +1,7 @@
 package com.vilas.hungerHub.controllers;
 
 import com.vilas.hungerHub.entity.User;
+import com.vilas.hungerHub.exception.UserNotFoundException;
 import com.vilas.hungerHub.serviceInterface.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -41,6 +42,12 @@ public class UserController {
 
         return ResponseEntity.status(HttpStatus.OK).body(user);
 
+    }
+
+    @GetMapping("/email")
+    public String getEmail(@RequestParam("userName") String userName){
+        return userService.getUserByUserName(userName)
+                .orElseThrow(() -> new UserNotFoundException("Invalid User Name")).getEmail();
     }
 
     @GetMapping("/all")
@@ -88,7 +95,7 @@ public class UserController {
 
         //fetch user from database
         try {
-            user = userService.getUserById(reqUser).orElseThrow(() -> new RuntimeException("user not found"));
+            user = userService.getUserByUserName(reqUser.getUserName()).orElseThrow(() -> new RuntimeException("user not found"));
         }
         catch (RuntimeException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Map.of("message", e.getMessage()));

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import style from '../css/login.module.css'
 import url from '../pages/endpoint'
@@ -101,14 +101,14 @@ function Login() {
 
                     <div className={style.formOptions}>
                         <div className={style.forgetPassword}>
-                            <a href="pages/forgot-password.html" className={style.forgotPassword}>Forgot Password?</a>
+                            <Link to="/forgot-password">Forgot Password?</Link>
                         </div>
                     </div>
 
                     <button type="submit" className={style.loginBtn} disabled = {!login}>{login ? "Login" : "Verifying..."}</button>
 
                     <div className={style.registerLink}>
-                        Don't have an account? <a href="pages/registration.html">Register</a>
+                        Don't have an account? <Link to="/register">Register here</Link>
                     </div>
                 </form>
             </div>

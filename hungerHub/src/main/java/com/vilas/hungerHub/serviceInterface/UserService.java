@@ -17,6 +17,8 @@ public interface UserService {
 
     Optional<User> getUser(User User);
 
+    Optional<User> getUserByUserName(String userName);
+
     Optional<User> getUserById(User user);
 
     User updateAllDetails(User oldUser, User newUser);

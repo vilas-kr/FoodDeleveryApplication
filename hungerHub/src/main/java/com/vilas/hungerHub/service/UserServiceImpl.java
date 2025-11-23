@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
     private static final Map<String, String> PREFIX_MAP = Map.of(
             "USER", "USER",
-            "ADMIN", "ADMIN",
+            "RESTAURANT", "ADMIN",
             "SUPERADMIN", "SUPR",
             "DELIVERYAGENT", "AGENT"
     );
@@ -62,7 +62,6 @@ public class UserServiceImpl implements UserService {
 
         return userRepo.save(user);
     }
-
 
     @Override
     public List<User> getAllUsers(){
@@ -110,6 +109,13 @@ public class UserServiceImpl implements UserService {
             return userRepo.findByEmail(user.getEmail());
         else
             return Optional.empty();
+    }
+
+    @Override
+    public Optional<User> getUserByUserName(String userName){
+        if(userName != null)
+            return userRepo.findByUserName(userName);
+        else return Optional.empty();
     }
 
     @Override
