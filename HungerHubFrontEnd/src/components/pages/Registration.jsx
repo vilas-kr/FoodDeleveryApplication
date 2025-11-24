@@ -146,6 +146,7 @@ export default function Registration() {
                   placeholder="Enter your full name"
                   required
                   className={styles.input}
+                  autoComplete='new-name'
                 />
               </div>
             </div>
@@ -198,6 +199,7 @@ export default function Registration() {
                   placeholder="Enter your phone number (e.g., 996-456-7890)"
                   required
                   className={styles.input}
+                  autoComplete='new-phone'
                 />
               </div>
               <small className={styles.hint}>Format: XXXXX XXXXX</small>
@@ -269,6 +271,7 @@ export default function Registration() {
                 placeholder="Enter your address"
                 required
                 className={styles.textarea}
+                autoComplete='new-address'
               />
             </div>
           </div>
@@ -289,7 +292,7 @@ export default function Registration() {
           <button type="submit" className={styles.registerBtn}>Create Account</button>
 
           <div className={styles.loginLink}>
-            Already have an account? <Link to="/">Login</Link>
+            Already have an account? <Link to="/login">Login</Link>
           </div>
         </form>
       </div>

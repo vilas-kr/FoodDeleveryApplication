@@ -114,16 +114,16 @@ body {
     font-size: 14px;
 }
 
-.forgotPassword {
+.forgotPassword a{
     color: #6c63ff;
     font-size: 14px;
+    font-weight: 500;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.forgotPassword:hover {
+.forgotPassword a:hover {
     color: #5046e5;
-    text-decoration: underline;
 }
 
 /* Button Styles */
@@ -166,7 +166,6 @@ body {
 }
 
 .registerLink a:hover {
-    text-decoration: underline; 
     color: #5046e5;
 }
 

@@ -8,11 +8,10 @@ import { useNavigate } from 'react-router-dom';
 export default function ResetPassword() {
 
   const username = useSelector((state) => state.user.userName) || '';
-  console.log("Username in ResetPassword:", username);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [checks, setChecks] = useState({ length: false, uppercase: false, lowercase: false, number: false, special: false });
-
+  
   const navigate = useNavigate();
   useEffect(() => {
     validate(newPassword);

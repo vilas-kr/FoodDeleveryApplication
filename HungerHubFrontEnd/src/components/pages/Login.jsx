@@ -100,7 +100,7 @@ function Login() {
                     </div>
 
                     <div className={style.formOptions}>
-                        <div className={style.forgetPassword}>
+                        <div className={style.forgotPassword}>
                             <Link to="/forgot-password">Forgot Password?</Link>
                         </div>
                     </div>

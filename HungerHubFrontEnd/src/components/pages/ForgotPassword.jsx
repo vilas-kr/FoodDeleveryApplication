@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import styles from '../css/forgotPassword.module.css';
 import url from '../pages/endpoint'
 import axios from 'axios';
@@ -35,9 +35,7 @@ export default function ForgotPassword() {
     })
     .then((response) => {
         if(response.data == form.email){
-            dispatch(addUser({
-                userName : form.username
-            }));
+            dispatch(addUser({ userName : form.username}));
             navigation("/reset-password");
         }else{
             alert("Username and Email do not match");
@@ -100,7 +98,7 @@ export default function ForgotPassword() {
           <button type="submit" className={styles.resetBtn}>Reset Password</button>
 
           <div className={styles.backToLogin}>
-            <a href="/"> <i className="fas fa-arrow-left"></i> Back to Login</a>
+            <Link to="/login"> <i className="fas fa-arrow-left"></i> Back to Login</Link>
           </div>
         </form>
       </div>
