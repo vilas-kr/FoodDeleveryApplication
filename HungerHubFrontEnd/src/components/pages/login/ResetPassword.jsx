@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import styles from '../css/resetPassword.module.css';
+import styles from '../../css/login/resetPassword.module.css';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
-import url from '../pages/endpoint'
+import url from '../endpoint'
 import { useNavigate } from 'react-router-dom';
 
 export default function ResetPassword() {

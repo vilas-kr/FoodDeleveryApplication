@@ -40,4 +40,6 @@ public class Menu {
     @Lob
     private String image;
 
+    @Column(name = "veg_type")
+    private VegType vegType;
 }

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {Link, useNavigate} from 'react-router-dom';
-import styles from '../css/forgotPassword.module.css';
-import url from '../pages/endpoint'
+import styles from '../../css/login/forgotPassword.module.css';
+import url from '../endpoint'
 import axios from 'axios';
-import { addUser } from '../../redux/userSlice';
+import { addUser } from '../../../redux/userSlice';
 
 export default function ForgotPassword() {
   const [form, setForm] = useState({ username: '', email: '' });

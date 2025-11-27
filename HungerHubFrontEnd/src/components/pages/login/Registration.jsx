@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../css/registration.module.css';
+import styles from '../../css/login/registration.module.css';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
-import url from '../pages/endpoint';
+import url from '../endpoint';
 
 export default function Registration() {
   const [form, setForm] = useState({

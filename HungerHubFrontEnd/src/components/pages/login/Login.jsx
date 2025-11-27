@@ -3,9 +3,9 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 
-import style from '../css/login.module.css'
-import url from '../pages/endpoint'
-import { addUser } from "../../redux/userSlice"
+import style from '../../css/login/login.module.css'
+import url from '../endpoint'
+import { addUser } from "../../../redux/userSlice"
 function Login() {
     
     useEffect(() => {
@@ -39,7 +39,9 @@ function Login() {
         })
         .then((response) => {
             dispatch(addUser({
-                userId : response.data.userId,
+                id : response.data.userId,
+                name : response.data.userName,
+                address : response.data.address,
                 role : response.data.role
             }));
             switch(response.data.role){
