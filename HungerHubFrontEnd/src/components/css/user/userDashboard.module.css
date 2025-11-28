@@ -1,0 +1,62 @@
+main{
+    padding: 20px 8%;
+    background-color: rgb(234, 238, 243);
+}
+
+.popularCuisines .title{
+    text-align: left;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.popularCuisines .name{font-size:28px;font-weight:700;color:#111}
+.popularCuisines .message{font-size:20px;color:#666;margin-left:6px}
+
+.cuisinesWrap{position:relative}
+.cuisineArrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;left:-10px}
+.cuisineArrow:last-of-type{right:-10px;left:auto}
+
+.cuisines{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+}
+.cuisines::-webkit-scrollbar{display:none}
+
+.cuisineCard{
+    margin: 10px;
+    align-items: center;
+    text-align: center;
+    flex: 0 0 calc(100% / 6 - 10px); /* 6 items fit the width on large screens */
+    scroll-snap-align: start;
+}   
+
+.cuisineCard img{
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    aspect-ratio: 3/4;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.cuisineCard span{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Horizontal wrapper to contain arrows and horizontal list */
+.cuisinesWrap{display:flex;align-items:center;gap:12px}
+.cuisineArrow{background:#fff;border:1px solid rgba(0,0,0,0.08);padding:6px 10px;border-radius:6px;cursor:pointer}
+.cuisineArrow:active{transform:translateY(1px)}
+
+@media (max-width: 1100px){
+    .cuisineCard{flex: 0 0 calc(100% / 4 - 10px)}
+}
+@media (max-width: 760px){
+    .cuisineCard{flex: 0 0 calc(100% / 2 - 10px)}
+}

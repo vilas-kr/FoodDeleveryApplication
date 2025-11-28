@@ -6,11 +6,22 @@
     justify-content: space-around;
     flex-direction: row;
 }
+
 .leftGroup{
     display: flex;
     align-items: center;
     gap: 15px;
     flex-direction: row;
+    column-gap: 30px;
+}
+
+.navigationLinks{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-direction: row;
+    padding: 10px;
+    column-gap: 40px;
 }
 
 .leftGroup input{
@@ -22,6 +33,7 @@
     font-size: 14px;
     text-wrap:wrap;
 }
+
 
 .leftGroup .image img{
     width: 50px;
@@ -35,13 +47,6 @@
     font-weight: 600;
 }
 
-.navigationLinks{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    flex-direction: row;
-    padding: 10px;
-}
 
 .navigationLinks a{
     font-size: 16px;
@@ -54,7 +59,7 @@
 .navigationLinks i{
     font-size: 16px;
     color: #2b1805;
-    padding-right: 5px;
+    padding-right: 10px;
 }
 
 .navigationLinks .profile{

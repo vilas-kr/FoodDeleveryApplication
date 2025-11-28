@@ -1,19 +1,13 @@
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import style from '../../css/user/navigation.module.css';   
-import { useEffect } from "react";
+
 
 export function Navigation() {
-
-    const user = useSelector((state) => state.user) || {};
-    useEffect(() => {
-        const body = document.body.style;
-        body.background = "rgba(195, 199, 203, 1)";
-        body.display = "block";
-    }, []);
-
         
+    const user = useSelector((state) => state.user);
     return (
+        <header>
         <div className={style.container}>
             <div className={style.leftGroup}>
                 <div className={style.image}>
@@ -57,5 +51,6 @@ export function Navigation() {
                 </div>
             </div>
         </div>
+        </header>
     )
 }
