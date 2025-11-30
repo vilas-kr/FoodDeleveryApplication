@@ -1,5 +1,7 @@
 package com.vilas.hungerHub.serviceInterface;
 
+import java.util.List;
+
 import com.vilas.hungerHub.dto.RestaurantDTO;
 import com.vilas.hungerHub.entity.Restaurant;
 
@@ -18,4 +20,8 @@ public interface RestaurantService {
     RestaurantDTO deleteRestaurant(RestaurantDTO dto);
 
     Restaurant getRestaurant(String restaurantId);
+
+    List<RestaurantDTO> getPopularRestaurant();
+
+    String getImage(String restId);
 }

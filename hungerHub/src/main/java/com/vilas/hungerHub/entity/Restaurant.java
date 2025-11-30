@@ -34,8 +34,8 @@ public class Restaurant {
     @Column(name = "cuisine_type")
     private List<String> cuisineType;
 
-    @Column(name = "delivery_time", nullable = false)
-    private LocalTime deliveryTime;
+    @Column(name = "cooking_time", nullable = false)
+    private Integer cookingTime;
 
     @Column(name = "rating", nullable = false)
     @DecimalMax(value = "5.0", message = "Rating value should be below 5")

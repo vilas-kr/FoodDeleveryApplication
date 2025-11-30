@@ -8,14 +8,19 @@ import com.vilas.hungerHub.exception.RestaurantNotFoundException;
 import com.vilas.hungerHub.exception.UserNotFoundException;
 import com.vilas.hungerHub.mapper.RestaurantMapper;
 import com.vilas.hungerHub.repository.IdSequenceRepository;
+import com.vilas.hungerHub.repository.OrderRepository;
 import com.vilas.hungerHub.repository.RestaurantRepository;
 import com.vilas.hungerHub.repository.UserRepository;
+import com.vilas.hungerHub.serviceInterface.OrderService;
 import com.vilas.hungerHub.serviceInterface.RestaurantService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -32,6 +37,9 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Autowired
     private final RestaurantMapper mapper;
+
+    @Autowired
+    private final OrderRepository orderRepository;
 
     @Transactional
     @Override
@@ -98,7 +106,7 @@ public class RestaurantServiceImpl implements RestaurantService {
             rest.setAddress(dto.getAddress());
 
         if(dto.getCookingTime() != null)
-            rest.setDeliveryTime(dto.getCookingTime());
+            rest.setCookingTime(dto.getCookingTime());
 
         if(dto.getImage() != null)
             rest.setImage(dto.getImage());
@@ -148,6 +156,21 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public Restaurant getRestaurant(String restaurantId){
         return restRepo.findById(restaurantId).orElseThrow(() -> new RestaurantNotFoundException("Invalid Restaurant Id"));
+    }
+
+    @Override
+    public List<RestaurantDTO> getPopularRestaurant() {
+        List<Restaurant> popularRestaurant = restRepo.findAllById(orderRepository.findTopRestaurants());
+        List<RestaurantDTO> restaurants = new ArrayList<>();
+        for(Restaurant rest : popularRestaurant){
+            restaurants.add(mapper.toDto(rest));
+        }
+        return restaurants;
+    }
+
+    @Override
+    public String getImage(String restId) {
+        return restRepo.findImageById(restId);
     }
 
 }

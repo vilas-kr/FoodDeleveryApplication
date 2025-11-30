@@ -5,6 +5,8 @@ import com.vilas.hungerHub.entity.Order;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface OrderService {
     @Transactional
     OrderDTO createOrder(OrderDTO orderDTO);
@@ -12,4 +14,5 @@ public interface OrderService {
     Order createOrder(Order order);
 
     void calculateTotalAmount(Order order);
+
 }
