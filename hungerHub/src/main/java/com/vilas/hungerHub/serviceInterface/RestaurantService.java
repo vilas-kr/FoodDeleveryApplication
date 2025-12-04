@@ -1,9 +1,12 @@
 package com.vilas.hungerHub.serviceInterface;
 
+import java.io.IOException;
 import java.util.List;
 
+import com.vilas.hungerHub.dto.FileResponse;
 import com.vilas.hungerHub.dto.RestaurantDTO;
 import com.vilas.hungerHub.entity.Restaurant;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface RestaurantService {
 
@@ -23,5 +26,9 @@ public interface RestaurantService {
 
     List<RestaurantDTO> getPopularRestaurant();
 
-    String getImage(String restId);
+    FileResponse saveImage(MultipartFile file) throws IOException;
+
+    byte[] getImageByName(String fileName) throws IOException;
+
+    String getContentType(String fileName);
 }

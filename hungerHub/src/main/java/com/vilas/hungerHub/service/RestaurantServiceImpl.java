@@ -1,5 +1,6 @@
 package com.vilas.hungerHub.service;
 
+import com.vilas.hungerHub.dto.FileResponse;
 import com.vilas.hungerHub.dto.RestaurantDTO;
 import com.vilas.hungerHub.entity.IdSequence;
 import com.vilas.hungerHub.entity.Restaurant;
@@ -11,16 +12,20 @@ import com.vilas.hungerHub.repository.IdSequenceRepository;
 import com.vilas.hungerHub.repository.OrderRepository;
 import com.vilas.hungerHub.repository.RestaurantRepository;
 import com.vilas.hungerHub.repository.UserRepository;
-import com.vilas.hungerHub.serviceInterface.OrderService;
 import com.vilas.hungerHub.serviceInterface.RestaurantService;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -169,8 +174,65 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public String getImage(String restId) {
-        return restRepo.findImageById(restId);
+    public FileResponse saveImage(MultipartFile file) throws IOException {
+
+        String uploadDir = System.getProperty("user.dir") + "/uploads/restaurant-images/";
+
+        // create folder if not exists
+        File folder = new File(uploadDir);
+        if (!folder.exists()) {
+            folder.mkdirs();
+        }
+
+        // Get file extension
+        String originalName = file.getOriginalFilename();
+
+        // File type ( important )
+        String fileType = file.getContentType();
+
+        String extension = "";
+        if (originalName != null && originalName.contains(".")) {
+            extension = originalName.substring(originalName.lastIndexOf("."));
+        }
+
+        // Generate unique file name
+        String uniqueFileName = UUID.randomUUID().toString() + extension;
+
+        // Final file path
+        String filePath = uploadDir + uniqueFileName;
+
+        // Save file
+        file.transferTo(new File(filePath));
+
+        return new FileResponse(uniqueFileName, fileType);  // return filename and type to store in DB
+    }
+
+    @Override
+    public byte[] getImageByName(String fileName) throws IOException {
+
+        String uploadDir = System.getProperty("user.dir") + "/uploads/restaurant-images/";
+
+        File file = new File(uploadDir + fileName);
+
+        if (!file.exists()) {
+            throw new IOException("File not found: " + fileName);
+        }
+
+        // Return file as bytes
+        return Files.readAllBytes(file.toPath());
+    }
+
+    @Override
+    public String getContentType(String fileName) {
+        String ext = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
+
+        return switch (ext) {
+            case "jpg", "jpeg" -> "image/jpeg";
+            case "png" -> "image/png";
+            case "gif" -> "image/gif";
+            case "webp" -> "image/webp";
+            default -> "application/octet-stream";
+        };
     }
 
 }

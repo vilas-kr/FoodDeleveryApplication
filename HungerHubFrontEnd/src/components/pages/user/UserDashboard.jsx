@@ -54,7 +54,7 @@ export default function UserDashboard() {
           <hr className={style.line} />
         </div>
 
-        <div className='popularRestaurants'>
+        <div className={style.popularRestaurants}>
           <div className={style.sectionTitle}>
             <h2>Popular Restaurants</h2>
           </div>
@@ -118,28 +118,26 @@ export function PopularRestaurants() {
     {restaurants.map((restaurant) => (
       <div key={restaurant.id} className={style.restaurantCard}>
         <Link to={`/user/restaurant/${restaurant.id}`}>
-          <img src={`${url}/restaurant/${restaurant.id}`} alt={restaurant.name} className={style.restaurantImage} />
+          <img src={`${url}/restaurant/image/${restaurant.image}`} alt={restaurant.name} className={style.restaurantImage} />
           <div className={style.restaurantInfo}>
             <h3 className={style.restaurantName}>{restaurant.name}</h3>
             <div className={style.restaurantRating}>
-              {[...Array(5)].map((_, i) => {
-                const rating = Math.round(restaurant.rating);
-                return (
-                  <span
-                    key={i}
-                    className={i < rating ? "fas fa-star checked" : "fas fa-star"}
-                  ></span>
-                );
-              })}
-              <span>{restaurant.rating}</span>
-              <span className={style.cookingTime}>{restaurant.cookingTime} - {restaurant.cookingTime + 5} mins</span>
+              <div>
+                <img src="./icons/star_icon.png" alt="rating" className={style.starIcon} />
+                <span>{restaurant.rating}</span>
+              </div>
+              <div>
+                <span className={style.cookingTime}>{restaurant.cookingTime} - {restaurant.cookingTime + 5} mins</span>
+              </div>
             </div>
             <div className={style.restaurantCuisine}>
               {restaurant.cuisines.map((cuisine, index) => (
-                <span key={index} className={style.cuisineItem}>{cuisine}</span>
+                <span key={index} className={style.cuisineItem}>{cuisine}, </span>
               ))}
             </div>
-
+            <div className={style.restaurantLocation}>
+              {restaurant.address}
+            </div>
           </div>
         </Link>
       </div>

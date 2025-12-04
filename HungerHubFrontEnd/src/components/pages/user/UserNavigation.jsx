@@ -17,7 +17,7 @@ export function Navigation() {
                     <h2>HungerHub</h2>
                 </div>  
                 <div className={style.address}>
-                    <spam>Deliver to</spam> 
+                    <span>Deliver to</span> 
                     <div className={style.location}>
                         <input type="text" placeholder="Set your address" value={user.address} disabled/>
                     </div>
@@ -28,25 +28,25 @@ export function Navigation() {
                 <div className={style.search}>
                     <Link to="/user/search">
                         <i className="fas fa-search"/>
-                        <spam>Search</spam>
+                        <span>Search</span>
                     </Link>
                 </div>
                 <div className={style.help}>
                     <Link to="/help">
                         <i className="fas fa-question-circle"/>
-                        <spam>Help</spam>   
+                        <span>Help</span>   
                     </Link>
                 </div>
                 <div className={style.profile}>     
                     <Link to="/user/profile">
                         <i className="fas fa-user"/>
-                        <spam>{user.name}</spam>
+                        <span>{user.name}</span>
                     </Link>
                 </div>
                 <div className={style.cart}>
                     <Link to="/user/cart">
                         <i className="fas fa-shopping-cart"/>
-                        <spam>Cart</spam>
+                        <span>Cart</span>
                     </Link>
                 </div>
             </div>

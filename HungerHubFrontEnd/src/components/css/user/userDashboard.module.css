@@ -1,8 +1,9 @@
 main{
-    width: 100%;
+    width: 100vw;
     padding: 20px 5%;
     box-sizing: border-box;
     background-color: rgb(255,255,255);
+    overflow:hidden;
 }
 
 .popularCuisines .title{
@@ -69,4 +70,96 @@ main{
     border: none;
     height: 3px;
     background-color: #a09a9a;
+}
+
+.restaurants{
+    display: grid;
+    padding-left: 10px;
+    margin-top: 20px;
+    grid-template-columns: repeat(4, 20%);
+    column-gap: 5%;
+}
+
+.restaurantCard{
+    margin-bottom: 30px;
+}
+
+.restaurantCard a{
+    text-decoration: none;
+}
+
+.restaurantCard img{    
+    width: 280px;
+    height: 180px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.restaurantInfo{
+    margin-top: 5px;
+}
+
+.restaurantRating{
+    display: flex;
+    justify-content: space-between;
+    column-gap: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    color: rgb(62, 61, 61);
+    width: inherit;
+    align-self: center;
+}
+
+.restaurantRating span:last-child{
+    margin-left: 5px;
+}
+
+
+.restaurantInfo{
+    padding:0 10px;
+}
+
+.restaurantName{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(2, 2, 2);
+}
+
+.restaurantRating div:last-child{ 
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+.restaurantCuisine, .restaurantLocation{
+    width: 100%;
+    display: block;
+    font-size: 14px;
+    color: rgba(14, 14, 14, 0.604);
+    margin-top: 5px;
+    font-weight: 500;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.restaurantLocation{
+    margin-top: 0px;
+}
+
+.restaurantRating div:first-child {
+    display: flex;
+    align-items: center;   /* <-- vertically center */
+}
+
+.restaurantRating .starIcon {
+    width: 22px;
+    height: 22px;
+    object-fit: cover;
+    border: none;
 }

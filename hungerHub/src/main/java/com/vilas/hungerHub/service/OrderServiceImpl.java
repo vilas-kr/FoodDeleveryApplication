@@ -4,6 +4,7 @@ import com.vilas.hungerHub.dto.OrderDTO;
 import com.vilas.hungerHub.entity.Order;
 import com.vilas.hungerHub.entity.OrderItem;
 import com.vilas.hungerHub.entity.Status;
+import com.vilas.hungerHub.exception.OrderNotFoundException;
 import com.vilas.hungerHub.mapper.EntityFetcher;
 import com.vilas.hungerHub.mapper.OrderMapper;
 import com.vilas.hungerHub.repository.OrderRepository;
@@ -87,6 +88,11 @@ public class OrderServiceImpl implements OrderService {
         }
 
         order.setTotalAmount(totalAmount);
+    }
+
+    @Override
+    public OrderDTO getOrderDetails(String id) {
+        return orderMapper.toDTO(orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException("Invalid Order Number")));
     }
 
 

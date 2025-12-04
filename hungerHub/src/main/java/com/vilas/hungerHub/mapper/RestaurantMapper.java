@@ -13,7 +13,7 @@ public interface RestaurantMapper {
     @Mapping(source = "active", target = "isOpen")
     @Mapping(source = "cookingTime", target = "cookingTime")
     @Mapping(source = "admin.userId", target = "admin")
-    @Mapping(target = "image", expression = "java(null)")
+    @Mapping(source = "image", target = "image")
     RestaurantDTO toDto(Restaurant rest);
 
     @Mapping(source = "id", target = "restaurantId")
@@ -21,6 +21,7 @@ public interface RestaurantMapper {
     @Mapping(source = "isOpen", target = "active")
     @Mapping(source = "cookingTime", target = "cookingTime")
     @Mapping(target = "admin", expression = "java(null)")
+    @Mapping(source = "image", target = "image")
     Restaurant toEntity(RestaurantDTO dto);
 
 }

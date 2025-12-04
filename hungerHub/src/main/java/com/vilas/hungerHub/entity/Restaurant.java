@@ -45,8 +45,7 @@ public class Restaurant {
     @Column(name = "active")
     private boolean isActive;
 
-    @Column(name = "image", columnDefinition = "TEXT") // max size 64KB
-    @Lob
+    @Column(name = "image") // max size 64KB
     private String image;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
