@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -95,5 +94,9 @@ public class OrderServiceImpl implements OrderService {
         return orderMapper.toDTO(orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException("Invalid Order Number")));
     }
 
+    @Override
+    public Order getOrderById(String id){
+        return orderRepository.findById(id).orElseThrow(() -> new OrderNotFoundException("Invalid Order Id"));
+    }
 
 }

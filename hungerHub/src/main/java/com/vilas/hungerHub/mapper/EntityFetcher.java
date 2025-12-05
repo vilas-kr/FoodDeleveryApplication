@@ -1,6 +1,7 @@
 package com.vilas.hungerHub.mapper;
 
 import com.vilas.hungerHub.serviceInterface.MenuService;
+import com.vilas.hungerHub.serviceInterface.OrderService;
 import com.vilas.hungerHub.serviceInterface.RestaurantService;
 import com.vilas.hungerHub.serviceInterface.UserService;
 import lombok.Getter;

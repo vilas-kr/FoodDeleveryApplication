@@ -1,6 +1,8 @@
 package com.vilas.hungerHub.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -42,4 +44,13 @@ public class Menu {
 
     @Column(name = "veg_type")
     private VegType vegType;
+
+    @Column(name = "rating")
+    @DecimalMax(value = "5.0", message = "Rating value should be below 5")
+    @DecimalMin(value = "0.0", message = "Rating should be grater than 0")
+    private Float rating;
+
+    @Column(name = "total_ratings")
+    private Integer totalRatings;
+
 }

@@ -17,7 +17,8 @@ public class RestaurantDTO {
     private String address;
     private List<String> cuisines;
     private Integer cookingTime;
-    private float rating;
+    private Float rating;
+    private Integer totalRating;
     private Boolean isOpen;
     private String image;
     private String admin;

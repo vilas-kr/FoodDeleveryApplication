@@ -16,4 +16,6 @@ public interface OrderService {
     void calculateTotalAmount(Order order);
 
     OrderDTO getOrderDetails(String id);
+
+    Order getOrderById(String id);
 }

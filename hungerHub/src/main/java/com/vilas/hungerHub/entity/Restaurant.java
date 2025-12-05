@@ -37,10 +37,10 @@ public class Restaurant {
     @Column(name = "cooking_time", nullable = false)
     private Integer cookingTime;
 
-    @Column(name = "rating", nullable = false)
+    @Column(name = "rating")
     @DecimalMax(value = "5.0", message = "Rating value should be below 5")
     @DecimalMin(value = "0.0", message = "Rating should be grater than 0")
-    private float rating;
+    private Float rating;
 
     @Column(name = "active")
     private boolean isActive;
@@ -54,5 +54,8 @@ public class Restaurant {
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Menu> menus;
+
+    @Column(name = "total_ratings")
+    private Integer totalRatings;
 
 }

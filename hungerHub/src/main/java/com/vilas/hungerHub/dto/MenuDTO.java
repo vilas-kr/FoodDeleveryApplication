@@ -21,5 +21,7 @@ public class MenuDTO {
     private Boolean available;
     private String cuisineType;
     private String image;
+    private Float rating;
+    private Integer totalRatings;
 
 }
